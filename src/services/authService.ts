@@ -21,3 +21,15 @@ export const sendOTP = async (username: string) => {
         }, 1000);
     });
 };
+
+export const verifyOTP = async (otp: string) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (otp === "123456") {
+                resolve({ token: "fake-jwt-token" });
+            } else {
+                reject(new Error("Invalid OTP"));
+            }
+        }, 1000);       
+    });
+};
